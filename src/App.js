@@ -17,7 +17,7 @@ class App extends Component {
                 <a href="">Categories</a>
             </Navigation>
         </Header>
-        <Drawer title="Title">
+        <Drawer title="Menu">
             <Navigation>
                 <a href="">New</a>
                 <a href="">Lists</a>

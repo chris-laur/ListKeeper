@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { IconButton, Icon, List, ListItem, ListItemAction, ListItemContent, Table, TableHeader } from 'react-mdl';
+import { IconButton, Table, TableHeader } from 'react-mdl';
 
 class Shelf extends Component {
   constructor(props) {
@@ -7,9 +7,9 @@ class Shelf extends Component {
     this.onAddItemToCart = this.onAddItemToCart.bind(this);
     this.state = {
       shelfItems: [ 
-        { id: 1, item: 'Shampoo' },
-        { id: 2, item: 'Yogurt' },
-        { id: 3, item: 'Chocolate' }
+        { id: 1, name: 'Shampoo' },
+        { id: 2, name: 'Yogurt' },
+        { id: 3, name: 'Chocolate' }
       ]
     }
   }
@@ -18,10 +18,11 @@ class Shelf extends Component {
   }
   render() {
     
-    const renderItem = (item) => {
+    const renderItem = (name) => {
+        let id = this.state.shelfItems.find((item) => { return item.name === name }).id;
         return (
-        <div onClick={() => this.onAddItemToCart(item)}>
-          <IconButton name="add" style={{color: '#216869'}} /> {item}
+        <div onClick={() => this.onAddItemToCart({id, name})}>
+          <IconButton name="add" style={{color: '#216869'}} /> {name}
         </div>
       );
     }
@@ -36,7 +37,7 @@ class Shelf extends Component {
             <TableHeader 
                 style={{background: '#9CC5A1'}}
                 cellFormatter={renderItem}
-                name="item"
+                name="name"
                 tooltip="Item to add to the list">
                 Item
             </TableHeader>
