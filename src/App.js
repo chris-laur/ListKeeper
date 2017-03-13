@@ -9,7 +9,7 @@ class App extends Component {
       
 <div>
     <Layout fixedHeader>
-        <Header style={{ background: '#49A078' }} title={<span><strong>List Keeper</strong></span>}>
+        <Header style={{ background: '#216869' }} title={<span><strong>List Keeper</strong></span>}>
             <Navigation>
                 <a href="">New</a>
                 <a href="">Lists</a>

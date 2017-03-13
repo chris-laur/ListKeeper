@@ -12,12 +12,26 @@ class Cart extends Component {
     }
   }
 
+  itemsInCart = function() {
+        let itemsList;
+        this.props.cart.forEach(function (value) {
+            let existingItem = this.find(function(itm) { return itm.id === value.id });
+            if (existingItem) {
+              existingItem.qty++;
+            } else {
+              value.qty = 1;
+              this.push(value);
+            }
+        }, itemsList = []);
+        return itemsList;
+    };
+
   render() {
     
     const renderItem = (name) => {
         return (
         <div>
-          <IconButton name="remove" style={{color: '#216869'}} /> {name}
+          <IconButton name="remove" style={{color: '#9CC5A1'}} /> {name}
         </div>
       );
     }
@@ -31,9 +45,14 @@ class Cart extends Component {
             sortable 
             shadow={0} 
             rowKeyColumn="id" 
-            rows={this.props.cart}>
+            rows={this.itemsInCart()}>
                 <TableHeader 
-                    style={{background: '#9CC5A1'}}
+                    style={{color: '#fff', background: '#49A078'}}
+                    name="qty">
+                    Qty
+                </TableHeader>
+                <TableHeader 
+                    style={{color: '#fff', background: '#49A078'}}
                     cellFormatter={renderItem}
                     name="name">
                     List

@@ -22,7 +22,7 @@ class Shelf extends Component {
         let id = this.state.shelfItems.find((item) => { return item.name === name }).id;
         return (
         <div onClick={() => this.onAddItemToCart({id, name})}>
-          <IconButton name="add" style={{color: '#216869'}} /> {name}
+          <IconButton name="add" style={{color: '#9CC5A1'}} /> {name}
         </div>
       );
     }
@@ -35,7 +35,7 @@ class Shelf extends Component {
             rowKeyColumn="id" 
             rows={this.state.shelfItems}>
             <TableHeader 
-                style={{background: '#9CC5A1'}}
+                style={{color: '#fff', background: '#49A078'}}
                 cellFormatter={renderItem}
                 name="name"
                 tooltip="Item to add to the list">
