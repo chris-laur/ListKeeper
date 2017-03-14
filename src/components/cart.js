@@ -48,12 +48,16 @@ class Cart extends Component {
             rows={this.itemsInCart()}>
                 <TableHeader 
                     style={{color: '#fff', background: '#49A078'}}
+                    cellFormatter={renderItem}
+                    name="remove">
+                </TableHeader>
+                <TableHeader 
+                    style={{color: '#fff', background: '#49A078'}}
                     name="qty">
                     Qty
                 </TableHeader>
                 <TableHeader 
                     style={{color: '#fff', background: '#49A078'}}
-                    cellFormatter={renderItem}
                     name="name">
                     List
                 </TableHeader>
