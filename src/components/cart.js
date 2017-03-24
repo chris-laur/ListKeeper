@@ -28,10 +28,11 @@ class Cart extends Component {
 
   render() {
     
-    const renderItem = (name) => {
+    const renderItem = (cellValue, row, rowIndex) => {
+        console.log(row);
         return (
         <div>
-          <IconButton name="remove" style={{color: '#9CC5A1'}} /> {name}
+          <IconButton onClick={ () => this.props.actions.removeFromCart({}) } name="remove" style={{color: '#9CC5A1'}} />
         </div>
       );
     }
@@ -45,7 +46,7 @@ class Cart extends Component {
             sortable 
             shadow={0} 
             rowKeyColumn="id" 
-            rows={this.itemsInCart()}>
+            rows={this.props.cart}>
                 <TableHeader 
                     style={{color: '#fff', background: '#49A078'}}
                     cellFormatter={renderItem}

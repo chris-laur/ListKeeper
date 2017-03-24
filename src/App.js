@@ -48,7 +48,7 @@ class App extends Component {
                         <a href="">Categories</a>
                     </Navigation>
                 </Drawer>
-                <Content>{this.getContent()}}</Content>
+                <Content>{this.getContent()}</Content>
             </Layout>
         </div>
 
